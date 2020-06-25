@@ -1,0 +1,5 @@
+<launch>
+
+<node name="orders_supervisor" pkg="orders_supervisor" type="main"/>
+
+</launch>

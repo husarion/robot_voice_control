@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>order_executor</name>
+  <version>0.0.0</version>
+  <description>The order_executor package</description>
+
+  <maintainer email="fiderekblazej@gmail.com">blazej</maintainer>
+
+
+  <license>TODO</license>
+
+  <build_depend>roscpp</build_depend> 
+  <exec_depend>roscpp</exec_depend> 
+  
+  <build_depend>image_transport</build_depend>
+  <exec_depend>image_transport</exec_depend>
+  
+  <build_depend>cv_bridge</build_depend>
+  <exec_depend>cv_bridge</exec_depend>
+  
+  <build_depend>orders_supervisor</build_depend> 
+   <exec_depend>orders_supervisor</exec_depend> 
+  
+  <buildtool_depend>catkin</buildtool_depend>
+
+
+  <export>
+
+  </export>
+</package>

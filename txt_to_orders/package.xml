@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>txt_to_orders</name>
+  <version>0.0.0</version>
+  <description>The txt_to_orders package</description>
+
+  <maintainer email="blazej@todo.todo">blazej</maintainer>
+
+
+  <license>TODO</license>
+  <build_depend> tf2_ros </build_depend>
+  <build_depend> roscpp </build_depend>
+  <build_depend>orders_supervisor</build_depend> 
+   <exec_depend>orders_supervisor</exec_depend> 
+  <buildtool_depend>catkin</buildtool_depend>
+
+
+</package>

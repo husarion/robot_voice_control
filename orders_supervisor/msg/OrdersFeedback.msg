@@ -1,0 +1,3 @@
+orders_supervisor/OrderFeedbackSimple previous_order
+orders_supervisor/OrderFeedback current_order
+orders_supervisor/OrderFeedbackSimple[] next_orders

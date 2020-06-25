@@ -1,0 +1,5 @@
+<launch>
+    <!-- load orders as ros param -->
+    <rosparam file="$(find order_executor)/config/mbdemo_orders.yaml" command="load" />
+    <node name="order_executor" pkg="order_executor" type="mbgoal_demo" output="screen"/>
+</launch>

@@ -1,0 +1,7 @@
+<launch>
+
+    <node name="voice_webserver" pkg="voice_webserver" type="start_webserver.sh" output="screen" />
+    <node name="voice_webclient" pkg="voice_webserver" type="start_webclient.sh" />
+
+
+</launch>

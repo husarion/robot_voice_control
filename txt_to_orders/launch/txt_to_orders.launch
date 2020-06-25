@@ -1,0 +1,5 @@
+<launch>
+
+<node name="txt_to_orders" pkg="txt_to_orders" type="main.py" output="screen"/>
+
+</launch>

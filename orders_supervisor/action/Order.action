@@ -1,0 +1,19 @@
+int32 id
+string label
+string description
+geometry_msgs/PoseStamped target_pose
+string[] fkeys
+float32[] fvals
+string[] skeys
+string[] svals
+---
+bool success
+---
+int32 id
+string description
+float32 distance_linear
+float32 distance_angular
+string progress
+
+
+

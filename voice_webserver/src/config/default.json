@@ -1,0 +1,1 @@
+{"config": {"SILENCE_THRESHOLD": 500, "HOSTNAME": "localhost", "LM_BETA": 1.85, "SOCKET_PORT": 4000, "LM_ALPHA": 0.75, "GPU": true, "BEAM_WIDTH": 2048}}

@@ -1,0 +1,63 @@
+orders_list:
+  separator: "then" 
+  orders:
+    rotation: 
+      voice_alias: "turn"
+      label: "mbgoal"
+      frame: "base_link"
+      cases:
+        left:
+          voice_alias: "left"
+          yaw: 1.57
+        right:
+          voice_alias: "right"
+          yaw: -1.57
+        back:
+          voice_alias: "back(ward)?"
+          description: "back"
+          yaw: 3.14
+        
+    goal: 
+      voice_alias: "reach"  
+      label: "mbgoal"
+      frame: "map"
+      cases:
+        base:
+          voice_alias: "base"
+          x: 0.0
+          y: 0.0
+          yaw: 0.0
+        bathroom:
+          voice_alias: "bathroom"
+          x: 5.0
+          y: 2.0
+          yaw: 0.0
+        kitchen:
+          voice_alias: "kitchen"
+          x: 3.0
+          y: 5.0
+          yaw: 1.0
+        garbage:
+          voice_alias: "dumpster"
+          x: 1.0
+          y: -2.8
+
+    local_goal:
+      voice_alias: "move"
+      label: "mbgoal"
+      frame: "base_link"
+      cases: 
+        forward:
+          voice_alias: "forward|straight"
+          description: "forward"
+          x: 1.0
+          y: 0.0
+          yaw: 0.0
+
+        backward:
+          voice_alias: "back(ward)?"
+          description: "backward"
+          x: -1.0
+          y: 0.0
+          yaw: 3.14
+    
