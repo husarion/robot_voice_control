@@ -582,8 +582,6 @@ void TakePhotoExec::image_callback(const sensor_msgs::ImageConstPtr& msg){
 }
 
 void TakePhotoExec::execute(const orders_supervisor::OrderGoalConstPtr& goal){
-    feedback.id = goal->id; //set id to recognize goal
-    feedback.description = goal->description;
     result.success = true;
     
     fdict float_params = get_fdict(goal);
