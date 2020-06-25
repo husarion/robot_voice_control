@@ -545,7 +545,7 @@ touch order_executor/launch/orders_tutorial.launch
 ```
 
 
-Add proper dependecies, libraries and executables to package.xml and CMakeLists.txt following [this](#http://wiki.ros.org/cv_bridge/Tutorials/UsingCvBridgeToConvertBetweenROSImagesAndOpenCVImages) tutorial (Remember also to link OpenCV libraries and  orders_tutorial executable)
+Add proper dependecies, libraries and executables to package.xml and CMakeLists.txt following [this](http://wiki.ros.org/cv_bridge/Tutorials/UsingCvBridgeToConvertBetweenROSImagesAndOpenCVImages) tutorial (Remember also to link OpenCV libraries and  orders_tutorial executable)
 
 Now after building, [launch](#Usage) nodes of this package, but instead of launching ```mbgoal_demo.launch``` fire:
 ```
