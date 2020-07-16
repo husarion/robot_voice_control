@@ -1,0 +1,7 @@
+.vscode 
+deepspeech-0.6.0-models/
+cert/
+node_modules/
+*.pyc
+server.pem
+yarn.lock

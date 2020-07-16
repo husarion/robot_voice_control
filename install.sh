@@ -1,15 +1,15 @@
 #!/bin/bash
 
-pip install -r $(rospack find rosbot_voice_control)/../requirements.txt --user
+pip install -r $(rospack find voice_control)/../requirements.txt --user
 
 sudo apt install openssl
 
 cd $(rospack find voice_webserver)/src/
-wget https://github.com/mozilla/DeepSpeech/releases/download/v0.6.0/deepspeech-0.6.0-models.tar.gz
-tar -xzf ./deepspeech-0.6.0-models.tar.gz ; rm -rf deepspeech-0.6.0-models.tar.gz
+! ls | grep -w 'deepspeech-0.6.0-models' && wget https://github.com/mozilla/DeepSpeech/releases/download/v0.6.0/deepspeech-0.6.0-models.tar.gz
+ls | grep -w 'deepspeech-0.6.0-models.tar.gz' && tar -xzf ./deepspeech-0.6.0-models.tar.gz
 
 yarn install 
-cd ./cert
+mkdir cert ; cd ./cert
 
 hostname=$1
 gpu=$2
