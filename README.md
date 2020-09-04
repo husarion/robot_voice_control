@@ -18,13 +18,54 @@ Video demo is available under this [link](https://www.youtube.com/watch?v=XCsuoY
 * Voice aliases can be written in regex style which allows to use many voice aliases for same order
 
 ## **Installation**
-* Clone this package into your workspace
-* run catkin_make/catkin build
-* source your workspace's setup script
-* from cloned directory run:  ```./install.sh {YOURHOSTNAME} {GPU}```
 
+Before we run installation script we have to make sure that all needed packages are alredy installed. Please run in console:
+
+```
+sudo apt install python-pip
+```
+
+We will need also yarn but in Ubuntu 18.04 this pkg comes with cmdtest installed by default. We will have to remove cmdtest first.
+
+```
+sudo apt remove cmdtest
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+sudo apt update && sudo apt install yarn
+```
+
+Next step will be upgrading nodejs to version 12:
+
+```
+sudo apt update
+sudo apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+sudo apt -y install nodejs
+```
+
+Then clone this package into your workspace
+
+```
+git clone https://github.com/husarion/robot_voice_control.git
+```
+
+Open you workpace directory and build project:
+
+```
+cd ~/ros_workspace
+catkin_make
+```
+
+Go to directory of script `install.sh` and run it. 
 Instead ```{YOURHOSTNAME}``` paste your hostname in husarnet or your IP in local network  
-Instead ```{GPU}``` place ```1``` if you want to use Deepspeech with GPU **(Recommended)**, set ```0``` otherwise
+Instead ```{GPU}``` place ```0``` if you want to use Deepspeech with CPU **(Recommended)**, set ```1``` otherwise
+
+```
+cd ~/ros_workspace/src/robot_voicce_control
+./install.sh {YOURHOSTNAME} {GPU}
+```
+
+
 
 Installation may take few minutes, because deepspeech model has to be downloaded.
 **During installation you may be asked for sudo password to install OpenSSL. After this any time that script waits for input just hit ENTER.**
@@ -69,7 +110,6 @@ roslaunch rosbot_description gmapping.launch
 ```
 roslaunch tutorial_pkg move_base.launch
 ```
-
 
 
 **Now fire your browser and go to address** 
