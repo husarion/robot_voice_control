@@ -36,6 +36,8 @@ catkin_package(
                             src/MoveBaseExec.cpp
             )
 
+add_dependencies(order_executor orders_supervisor_generate_messages_cpp)
+
             add_executable(mbgoal_demo nodes/mbgoal_demo.cpp)
 
  target_link_libraries(mbgoal_demo order_executor ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
