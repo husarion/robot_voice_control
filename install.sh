@@ -13,9 +13,9 @@ mkdir cert ; cd ./cert
 
 hostname=$1
 gpu=$2
-python $(rospack find voice_webserver)/src/scripts/vw_config.py --update_hostname ${hostname:-"localhost"} --gpu ${gpu:-1} 
+python3 $(rospack find voice_webserver)/src/scripts/vw_config.py --update_hostname ${hostname:-"localhost"} --gpu ${gpu:-1} 
     
-openssl req -newkey rsa:4096 -x509 -sha256 -days 3650 -nodes -out cert.crt -keyout key.key
+openssl req -newkey rsa:4096 -x509 -sha256 -days 3650 -nodes -out cert.crt -keyout key.key -subj "/C=PL/ST=Krakow/L=Krakow/O=Husarion/OU=Tutorials/CN=localhost"
 cat key.key cert.crt > server.pem
 sed -i 's/ENCRYPTED/RSA/g' server.pem
 
