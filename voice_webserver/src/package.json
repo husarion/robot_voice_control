@@ -6,10 +6,12 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "bunch": "^0.5.1",
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
-    "deepspeech-gpu": "0.6.1",
+    "config": "^3.3.1",
     "deepspeech": "0.6.1",
+    "deepspeech-gpu": "0.6.1",
     "defaults": "^1.0.3",
     "double-metaphone": "1.0.5",
     "levenshtein-edit-distance": "2.0.5",
@@ -23,17 +25,14 @@
     "should": "^13.2.3",
     "should-http": "^0.1.1",
     "socket.io": "^2.3.0",
-    "socket.io-client": "^2.3.0",
-    "config" : "^3.3.1"
+    "socket.io-client": "^2.3.0"
   },
-
   "scripts": {
     "start": "export VOICE_WEBSERVER_HOSTNAME=$(python ./scripts/vw_config.py); HOST=${VOICE_WEBSERVER_HOSTNAME} HTTPS=true react-scripts start",
     "prestart": "rm ./node_modules/webpack-dev-server/ssl/server.pem ; cp -f ./cert/server.pem ./node_modules/webpack-dev-server/ssl",
     "build": "react-scripts build",
     "eject": "react-scripts eject"
   },
-  
   "eslintConfig": {
     "extends": "react-app"
   },
