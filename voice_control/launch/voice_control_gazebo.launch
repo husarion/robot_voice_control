@@ -1,0 +1,12 @@
+<launch>
+
+    <include file="$(find voice_webserver)/launch/voice_webserver.launch" />
+    <node name="txt_to_orders" pkg="txt_to_orders" type="main.py" output="screen"/>
+    <node name="orders_supervisor" pkg="orders_supervisor" type="main" output="screen"/>
+
+    <include file="$(find order_executor)/launch/mbgoal_demo.launch" />
+    <include file="$(find rosbot_description)launch/rosbot.launch" />
+    <include file="$(find rosbot_description)launch/gmapping.launch" />
+    <include file="$(find tutorial_pkg)launch/move_base.launch" />
+
+</launch>
