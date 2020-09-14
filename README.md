@@ -21,6 +21,11 @@ Video demo is available under this [link](https://www.youtube.com/watch?v=XCsuoY
 
 The easier way to test robot voice control is to use Docker container. To install Docker please refer to [Docker installation manual](https://docs.docker.com/engine/install/ubuntu/).
  
+Download the Dockerfile:
+```
+wget https://github.com/husarion/robot_voice_control/blob/fix_install/Dockerfile
+```
+
 Build docker image:
 ```
 docker build . -t voice_control
