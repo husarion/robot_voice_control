@@ -17,6 +17,33 @@ Video demo is available under this [link](https://www.youtube.com/watch?v=XCsuoY
 * History of previous orders with their results
 * Voice aliases can be written in regex style which allows to use many voice aliases for same order
 
+## **Using Docker image**
+
+The easier way to test robot voice control is to use Docker container. To install Docker please refer to [Docker installation manual](https://docs.docker.com/engine/install/ubuntu/).
+ 
+Build docker image:
+```
+docker build . -t voice_control
+```
+
+Run docker container:
+
+```
+docker run -p 3000:3000 -it -e DISPLAY=$DISPLAY --env="QT_X11_NO_MITSHM=1"  -v /tmp/.X11-unix:/tmp/.X11-unix voice_control
+```
+
+Inside container configure server:
+
+```
+source ~/ros_ws/devel/setup.sh
+python $(rospack find voice_webserver)/src/scripts/vw_config.py --update_hostname $(hostname -i) --gpu 0
+```
+
+Launch simulation:
+```
+roslaunch voice_control voice_control_gazebo.launch
+```
+
 ## **Installation**
 
 Before we run installation script we have to make sure that all needed packages are alredy installed. Please run in console:
