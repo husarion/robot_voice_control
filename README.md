@@ -23,7 +23,7 @@ The easier way to test robot voice control is to use Docker container. To instal
  
 Download the Dockerfile:
 ```
-wget https://github.com/husarion/robot_voice_control/blob/fix_install/Dockerfile
+wget https://raw.githubusercontent.com/husarion/robot_voice_control/fix_install/Dockerfile
 ```
 
 Build docker image:
@@ -34,7 +34,7 @@ docker build . -t voice_control
 Run docker container:
 
 ```
-docker run -p 3000:3000 -it -e DISPLAY=$DISPLAY --env="QT_X11_NO_MITSHM=1"  -v /tmp/.X11-unix:/tmp/.X11-unix voice_control
+docker run -p 3000:3000 -it -e DISPLAY=$DISPLAY --env="QT_X11_NO_MITSHM=1" --name voice_control  -v /tmp/.X11-unix:/tmp/.X11-unix voice_control
 ```
 
 Inside container configure server:
@@ -48,6 +48,18 @@ Launch simulation:
 ```
 roslaunch voice_control voice_control_gazebo.launch
 ```
+
+In new terminal window, obtain the container IP address:
+```
+docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' voice_control
+```
+
+Then open control panel in Chrome Browser by typing address:
+```
+https://CONTAINER_IP:3000
+```
+
+You may see warning regarding unsigned certificate, accept it to proceed.
 
 ## **Installation**
 

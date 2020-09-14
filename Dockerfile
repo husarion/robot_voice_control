@@ -39,10 +39,6 @@ RUN apt install -y wget
 RUN apt install -y libxtst6 
 RUN apt install -y libappindicator3-1
 
-RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
-RUN sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
-RUN apt-get update
-RUN apt-get install -y --no-install-recommends google-chrome-stable
 RUN rm -rf /var/lib/apt/lists/*
 
 RUN useradd --create-home husarion
@@ -52,8 +48,6 @@ RUN echo "husarion:x:1000:1000:Developer,,,:/home/husarion:/bin/bash" >> /etc/pa
 RUN echo "husarion:x:1000:" >> /etc/group
 RUN echo "husarion ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/husarion
 RUN chmod 0440 /etc/sudoers.d/husarion
-
-RUN echo 'alias google-chrome="google-chrome --user-data-dir --test-type --no-sandbox"'>>/etc/bash.bashrc
 
 RUN chown husarion:husarion /home/husarion
 USER husarion
@@ -85,6 +79,4 @@ RUN openssl req -newkey rsa:4096 -x509 -sha256 -days 3650 -nodes -out cert.crt -
 RUN cat key.key cert.crt > server.pem
 RUN sed -i 's/ENCRYPTED/RSA/g' server.pem
 
-RUN mkdir -p /home/husarion/.config/google-chrome
-RUN touch "/home/husarion/.config/google-chrome/First Run"
 WORKDIR /home/husarion/ros_ws
