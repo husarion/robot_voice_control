@@ -21,14 +21,9 @@ Video demo is available under this [link](https://www.youtube.com/watch?v=XCsuoY
 
 The easier way to test robot voice control is to use Docker container. To install Docker please refer to [Docker installation manual](https://docs.docker.com/engine/install/ubuntu/).
  
-Download the Dockerfile:
+Download the build docker image:
 ```
-wget https://raw.githubusercontent.com/husarion/robot_voice_control/fix_install/Dockerfile
-```
-
-Build docker image:
-```
-docker build . -t voice_control
+docker build https://raw.githubusercontent.com/husarion/robot_voice_control/fix_install/Dockerfile -t voice_control
 ```
 
 Run docker container:
@@ -54,7 +49,7 @@ In new terminal window, obtain the container IP address:
 docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' voice_control
 ```
 
-Then open control panel in Chrome Browser by typing address:
+Then open control panel in Chrome browser by typing address:
 ```
 https://CONTAINER_IP:3000
 ```
@@ -156,7 +151,7 @@ roslaunch tutorial_pkg move_base.launch
 ```
 
 
-**Now fire your browser and go to address** 
+**Now fire your Chrome browser and go to address** 
 
 >https://{YOURHOSTNAME}:3000  
 
