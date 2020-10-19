@@ -20,8 +20,58 @@ Video demo is available under this [link](https://www.youtube.com/watch?v=XCsuoY
 ## **Using Docker image**
 
 The easier way to test robot voice control is to use Docker container. To install Docker please refer to [Docker installation manual](https://docs.docker.com/engine/install/ubuntu/).
+
+### **With ROSbot** 
+
+On the host computer, download and build the docker image:
+```
+docker build https://raw.githubusercontent.com/husarion/robot_voice_control/fix_install/Dockerfile -t voice_control
+```
+
+Run docker container:
+
+```
+docker run --net=host -e ROS_MASTER_URI -e ROS_IPV6 -it --name voice_control voice_control
+```
+
+Inside container configure server:
+
+```
+source ~/ros_ws/devel/setup.sh
+python $(rospack find voice_webserver)/src/scripts/vw_config.py --update_hostname $(hostname) --gpu 0
+```
+
+Launch voice control server:
+```
+roslaunch voice_control voice_control_standalone.launch
+```
+
+On the ROSbot install the repository:
+```
+cd ~/husarion_ws/src
+git clone https://github.com/husarion/robot_voice_control.git
+cd ~/husarion_ws
+catkin_make
+```
+
+Launch ROSbot controls:
+```
+source ~/husarion_ws/devel/setup.sh
+roslaunch voice_control rosbot.launch
+```
+
+Then open control panel in Chrome browser by typing address:
+```
+https://ROSBOT_HOSTNAME:3000
+```
+Where `ROSBOT_HOSTNAME` is ROSbot name defined in Husarnet dashboard.
+
+You may see warning regarding unsigned certificate, accept it to proceed.
+
+
+### **With Gazebo**
  
-Download the build docker image:
+Download and build the docker image:
 ```
 docker build https://raw.githubusercontent.com/husarion/robot_voice_control/fix_install/Dockerfile -t voice_control
 ```
