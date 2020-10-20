@@ -23,6 +23,32 @@ The easier way to test robot voice control is to use Docker container. To instal
 
 ### **With ROSbot** 
 
+Voice recognition server must be running on a PC with x86-64 architechture, while rest of the algorithms may be running on ROSbot. In this tutorial we will connect both devices with use of Husarnet.
+
+#### Connecting devices through Husarnet
+
+- Log in or create an account at [husarnet.com](app.husarnet.com).
+- Create a new Husarnet network
+- Click **Add element** button and go to a **Join Code** tab.
+- Copy your join code. It should look like this: `fc94:b01d:1803:8dd8:b293:5c7d:7639:932a/XXXXXXXXXXXXXXXXXXXXX`
+- On both your robot and your laptop execute the following commands to connect them to the same Husarnet network:
+  a) install Husarnet
+  ```
+  curl https://install.husarnet.com/install.sh | sudo bash
+  ```
+  and then:
+  ```
+  systemctl restart husarnet
+  ```
+  b) join your robot and computer to the Husarnet network created in the point 2:
+  ```
+  sudo husarnet join <PLACE_YOUR_JOINCODE_HERE> <PLACE_YOUR_HOSTNAME_HERE>
+  ```
+
+For more information visit https://docs.husarnet.com/docs/begin-linux page.
+
+#### Voice recognition setup
+
 On the host computer, download and build the docker image:
 ```
 docker build https://raw.githubusercontent.com/husarion/robot_voice_control/fix_install/Dockerfile -t voice_control
@@ -62,9 +88,9 @@ roslaunch voice_control rosbot.launch
 
 Then open control panel in Chrome browser by typing address:
 ```
-https://ROSBOT_HOSTNAME:3000
+https://PC_HOSTNAME:3000
 ```
-Where `ROSBOT_HOSTNAME` is ROSbot name defined in Husarnet dashboard.
+Where `PC_HOSTNAME` is host PC name defined when connecting through Husarnet.
 
 You may see warning regarding unsigned certificate, accept it to proceed.
 
