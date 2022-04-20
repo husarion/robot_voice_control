@@ -13,6 +13,7 @@ RUN apt update
 RUN apt install -y dirmngr
 RUN apt install -y apt-transport-https
 RUN apt install -y lsb-release
+RUN apt install -y curl
 RUN apt install -y ca-certificates
 RUN apt remove -y cmdtest
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg --output pubkey.gpg
