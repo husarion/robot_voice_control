@@ -7,7 +7,7 @@
   <maintainer email="blazej@todo.todo">blazej</maintainer>
 
 
-  <license>TODO</license>
+  <license>Apache License 2.0</license>
 
 
   <buildtool_depend>catkin</buildtool_depend>
