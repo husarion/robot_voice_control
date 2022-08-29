@@ -7,7 +7,7 @@
   <maintainer email="blazej@todo.todo">blazej</maintainer>
 
 
-  <license>TODO</license>
+  <license>Apache License 2.0</license>
   <build_depend> tf2_ros </build_depend>
   <build_depend> roscpp </build_depend>
   <build_depend>orders_supervisor</build_depend> 
